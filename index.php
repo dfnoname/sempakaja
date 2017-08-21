@@ -5,8 +5,22 @@ if(!isset($_GET['url']) || empty($_GET['url'])){
 echo ":(";
 }
 
-echo ffffffS($_GET['url']);
+$result= ffffffS($_GET['url']);
 
+if(isset($_GET['replace'])){
+	if(!empty($_GET['replace'])){
+		if(isset($_GET['merchant'])){
+			if(!empty($_GET['merchant'])){
+				if($_GET['merchant'] == 'aliexpress'){
+					$key= 'vFYFqba';
+$result= preg_replace('~href="\K.*(?=")~Uis', 'http://s.click.aliexpress.com/deep_link.htm?aff_short_key='.$key.'&dl_target_url='.urlencode(\\1).'&dp=algisenjaya', $result);
+				}	
+			}	
+		}	
+	}	
+}	
+
+echo $result;
 
 
 function ffffffS($url){

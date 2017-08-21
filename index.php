@@ -7,6 +7,7 @@ echo ":(";
 
 $result= ffffffS($_GET['url']);
 
+/*
 if(isset($_GET['replace'])){
 	if(!empty($_GET['replace'])){
 		if(isset($_GET['merchant'])){
@@ -18,7 +19,8 @@ $result= preg_replace('~href="\K.*(?=")~Uis', 'http://s.click.aliexpress.com/dee
 			}	
 		}	
 	}	
-}	
+}
+*/
 
 echo $result;
 

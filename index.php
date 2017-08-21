@@ -1,8 +1,21 @@
 <?php
-header('Access-Control-Allow-Origin: *');  
-
+date_default_timezone_set('Asia/Shanghai');
 error_reporting(0);
 @ini_set('display_errors', 0);
+header('Access-Control-Allow-Origin: *');
+if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])){
+				header('HTTP/1.1 304 Not Modified');
+				die();
+			} 
+/* HEADER CACHE */	
+header('Cache-control: public, max-age=622080000');
+header('Expires: '.gmdate(DATE_RFC1123,time()+622080000));
+header('Last-Modified: '.gmdate(DATE_RFC1123,time()));
+header('Vary: Accept');
+header('Accept-Encoding: gzip, deflate');
+/* END HEADER CACHE */	
+
+
 if(!isset($_GET['url']) || empty($_GET['url'])){
 echo ":(";
 	exit();
